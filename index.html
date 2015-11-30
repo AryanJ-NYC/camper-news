@@ -22,7 +22,7 @@
       by - <a href="http://freecodecamp.com/{{ story.author.username }}" target="_blank">{{ story.author.username }}</a>
     </div>
     <div><i class="fa fa-thumbs-up"></i> {{ story.upVotes.length }}</div>
-    <div>Posted on: {{story.timePosted | date: 'MMM d, yyyy'}}</div>
+    <div>Posted: {{ story.timePosted | date: 'MMM d, yyyy' }}</div>
   </div>
 </div>
 <script src="node_modules/angular/angular.min.js"></script>
