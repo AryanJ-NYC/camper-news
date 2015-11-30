@@ -9,8 +9,7 @@
 <body ng-app="camperApp" ng-controller="camperController">
 <h1 class="text-center">FreeCodeCamp</h1>
 <h2 class="text-center">Camper News</h2>
-<div class="container-fluid">
-  <!--TODO add hyperlinks-->
+<div class="container">
   <!--TODO design-->
   <div class="col-lg-2 col-md-3 col-sm-4 thumbnail" ng-repeat="story in newsStories">
     <a href="{{ story.link }}" target="_blank"><img ng-src="{{ story.author.picture }}" /></a>
