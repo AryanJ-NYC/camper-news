@@ -13,10 +13,16 @@
   <!--TODO add hyperlinks-->
   <!--TODO design-->
   <div class="col-lg-2 col-md-3 col-sm-4 thumbnail" ng-repeat="story in newsStories">
-    <img class="img-responsive" ng-src="{{ story.author.picture }}" />
-    <div>{{ story.headline | limitTo: 10 }}<span ng-if="story.headline.length > 20 ">...</span></div>
-    <div>by - {{ story.author.username }}</div>
-    <div><i class="fa fa-thumbs-up"></i>{{ story.upVotes.length }}</div>
+    <a href="{{ story.link }}" target="_blank"><img ng-src="{{ story.author.picture }}" /></a>
+    <a href="{{ story.link }}" target="_blank">
+      <div>
+        {{ story.headline | limitTo: 20 }}<span ng-if="story.headline.length > 20 ">...</span>
+      </div>
+    </a>
+    <div>
+      by - <a href="http://freecodecamp.com/{{ story.author.username }}" target="_blank">{{ story.author.username }}</a>
+    </div>
+    <div><i class="fa fa-thumbs-up"></i> {{ story.upVotes.length }}</div>
     <div>Posted on: {{story.timePosted | date: 'MMM d, yyyy'}}</div>
   </div>
 </div>
