@@ -3,9 +3,24 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css">
 	<title>freeCodeCamp Camper News</title>
 </head>
-<body>
-	<script src="node_modules/angular/angular.min.js"></script>
+<body ng-app="camperApp" ng-controller="camperController">
+<h1 class="text-center">FreeCodeCamp</h1>
+<h2 class="text-center">Camper News</h2>
+<div class="container-fluid">
+  <!--TODO add hyperlinks-->
+  <!--TODO design-->
+  <div class="col-lg-2 col-md-3 col-sm-4 thumbnail" ng-repeat="story in newsStories">
+    <img class="img-responsive" ng-src="{{ story.author.picture }}" />
+    <div>{{ story.headline | limitTo: 10 }}<span ng-if="story.headline.length > 20 ">...</span></div>
+    <div>by - {{ story.author.username }}</div>
+    <div><i class="fa fa-thumbs-up"></i>{{ story.upVotes.length }}</div>
+    <div>Posted on: {{story.timePosted | date: 'MMM d, yyyy'}}</div>
+  </div>
+</div>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="app/app.js"></script>
 </body>
 </html>
