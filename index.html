@@ -14,18 +14,24 @@
 <h2 class="text-center">Camper News</h2>
 <div class="container">
   <!--TODO design-->
-  <div class="col-lg-2 col-md-3 col-sm-4 thumbnail" ng-repeat="story in newsStories">
-    <a href="{{ story.link }}" target="_blank"><img ng-src="{{ story.author.picture }}" /></a>
-    <a href="{{ story.link }}" target="_blank">
-      <div>
-        {{ story.headline | limitTo: 20 }}<span ng-if="story.headline.length > 20 ">...</span>
+  <div class="row">
+    <div ng-repeat="story in newsStories">
+      <div ng-if="$index % 4 == 0" class="clearfix visible-md-block"></div>
+      <div ng-if="$index % 3 == 0" class="clearfix visible-sm-block"></div>
+      <div class="col-lg-2 col-md-3 col-sm-4 thumbnail">
+        <a href="{{ story.link }}" target="_blank"><img ng-src="{{ story.author.picture }}" /></a>
+        <a href="{{ story.link }}" target="_blank">
+          <div>
+            {{ story.headline | limitTo: 20 }}<span ng-if="story.headline.length > 20 ">...</span>
+          </div>
+        </a>
+        <div>
+          by - <a href="http://freecodecamp.com/{{ story.author.username }}" target="_blank">{{ story.author.username }}</a>
+        </div>
+        <div><i class="fa fa-thumbs-up"></i> {{ story.upVotes.length }}</div>
+        <div>Posted: {{ story.timePosted | date: 'MMM d, yyyy' }}</div>
       </div>
-    </a>
-    <div>
-      by - <a href="http://freecodecamp.com/{{ story.author.username }}" target="_blank">{{ story.author.username }}</a>
     </div>
-    <div><i class="fa fa-thumbs-up"></i> {{ story.upVotes.length }}</div>
-    <div>Posted: {{ story.timePosted | date: 'MMM d, yyyy' }}</div>
   </div>
 </div>
 <script src="node_modules/angular/angular.min.js"></script>
